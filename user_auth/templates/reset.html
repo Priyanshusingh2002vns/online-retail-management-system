@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+ {% block content %}
+
+
+
+ <h1>reset page</h1>
+
+ <center>
+    {{error}}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">UserName:</label>
+        <input type="text" name="" id="" value="{{request.user.username}}" readonly> <br><br>
+        {% if new_pass %}
+            <label for="">New Password</label>
+            <input type="password" name="newpass" id="" >
+        {% else %}
+
+            <label for="">Old Password</label>
+            <input type="password" name="oldpass" id=""><br><br>
+        {% endif %}
+
+        <button type="submit">SUBMIT</button>
+
+    </form>
+ </center>
+
+
+    {% endblock %}

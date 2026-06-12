@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+ {% block content %}
+
+ <h1>forget page</h1>
+
+ <center>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" name="fuser" id=""><br><br>
+        <button type="submit">Submit</button>
+    </form>
+ </center>
+
+
+    {% endblock %}

@@ -1,0 +1,68 @@
+<nav>
+    <div class="logo">
+        <h1>SHOPSPAHERE</h1>
+    </div>
+
+    <div class="links">
+        
+
+        {% if request.user.is_authenticated %}
+        {% if home %}
+        <form action="">
+            <input type="text" name="q" id="" placeholder="search">
+            <button type="submit">Search</button>
+        </form>
+        <form action="">
+            <input type="submit" name="trending" id="" value="Trending">
+        </form>
+
+        <form action="">
+            <input type="submit" name="offer" id="" value="Offer">
+
+        </form>
+
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'cart' %}">CART({{cartproduct_count}})</a>
+        <a href="{% url 'profile' %}">PROFILE</a>
+        <a href="{% url 'logout_' %}">LOGOUT</a>
+        <a href="">SUPPORT</a>
+        <a href="">KNOWS</a>
+        {% else %}
+         <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'cart' %}">CART({{cartproduct_count}})</a>
+        <a href="{% url 'profile' %}">PROFILE</a>
+        <a href="{% url 'logout_' %}">LOGOUT</a>
+        <a href="">SUPPORT</a>
+        <a href="">KNOWS</a>
+        {% endif %}
+        {% else %}
+            {% if home %}
+                <form action="">
+                    <input type="text" name="q" id="" placeholder="search">
+                    <button type="submit">Search</button>
+                </form>
+                <form action="">
+                    <input type="submit" name="trending" id="" value="trending">
+                </form>
+
+                <form action="">
+                    <input type="submit" name="offer" id="" value="offer">
+
+                </form>
+
+                <a href="{% url 'login_' %}">LOGIN</a>
+                <!-- <a href="{% url 'register' %}">REGISTER</a> -->
+                
+                <a href="">SUPPORT</a>
+                <a href="">KNOWS</a>
+
+            {% endif %}
+             <a href="{% url 'login_' %}">LOGIN</a>
+                <a href="{% url 'home' %}">Home</a>
+                
+                <a href="">SUPPORT</a>
+                <a href="">KNOWS</a>
+        {% endif %}
+
+    </div>
+</nav>

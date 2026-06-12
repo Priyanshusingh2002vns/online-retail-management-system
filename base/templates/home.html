@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+ {% block content %}
+
+ <h1>home page</h1>
+
+ <center>
+   
+   {% for i in category %}
+   <form action="">
+      <input type="submit" name="cat" id="" value="{{i}}" >
+   </form>
+   {% endfor %}
+   {% if no_match %}
+   <h1>No Product Found..!</h1>
+   {% endif %}
+   {% for i in all_products %}
+
+   {% if trend %}
+   <h1>Trending Now ...!!!</h1>
+   {% endif %}
+   
+   {% if offer %}
+   <h1>50% OFF</h1>
+   {% endif %}
+
+
+   <img src="{{i.pimage.url}}" alt=""><br><br>
+   {{i.pname}} // {{i.pdesc}} // {{i.price}}  <br><br>
+   <a href="{% url 'addtocart' i.id %}">Add To Cart</a><br><br>
+   {% endfor %}
+ </center>
+    {% endblock %}
